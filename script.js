@@ -6,7 +6,7 @@ window.onload = function() {
 
     // Trigger browser vibration (only works on devices that support it)
     if (navigator.vibrate) {
-        navigator.vibrate([2000, 100, 20000]); // Vibrate for 200ms, pause for 100ms, then vibrate for 200ms
+        navigator.vibrate([200, 100, 200]); // Vibrate for 200ms, pause for 100ms, then vibrate for 200ms
     }
 
     // Start progress bar animation
@@ -20,6 +20,14 @@ window.onload = function() {
             progressBar.style.width = progress + "%"; // Set the width of the progress bar
         } else {
             clearInterval(progressInterval); // Stop the progress once it reaches 100%
+            stopVibration(); // Stop vibration when progress reaches 100%
+        }
+    }
+
+    // Function to continuously vibrate until progress reaches 100%
+    function stopVibration() {
+        if (navigator.vibrate) {
+            navigator.vibrate(0); // Stop the vibration
         }
     }
 
