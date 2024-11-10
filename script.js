@@ -12,8 +12,9 @@ window.onload = function() {
     // Function to update progress bar
     function updateProgressBar() {
         if (progress < 100) {
-            progress += 1; // Increase progress by 1%
+            progress += 0.5; // Increase progress by 0.5%
             progressBar.style.width = progress + "%"; // Set the width of the progress bar
+            startVibration();
         } else {
             clearInterval(progressInterval); // Stop the progress once it reaches 100%
             stopVibration(); // Stop vibration when progress reaches 100%
