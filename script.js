@@ -1,7 +1,5 @@
-// Function to handle form submission
-function handleSubmit(event) {
-    event.preventDefault(); // Prevent the default form submission
-    
+// Function to trigger overlay, vibration, and progress bar animation
+window.onload = function() {
     // Show the black screen overlay
     const overlay = document.getElementById("overlay");
     overlay.classList.add("active");
@@ -11,10 +9,25 @@ function handleSubmit(event) {
         navigator.vibrate([2000, 100, 20000]); // Vibrate for 200ms, pause for 100ms, then vibrate for 200ms
     }
 
-    // You can add any other logic here, like sending the form data to a server
+    // Start progress bar animation
+    let progressBar = document.getElementById("progressBar");
+    let progress = 0;
 
-    // Optional: hide the overlay after a delay (e.g., 2 seconds)
+    // Function to update progress bar
+    function updateProgressBar() {
+        if (progress < 100) {
+            progress += 1; // Increase progress by 1%
+            progressBar.style.width = progress + "%"; // Set the width of the progress bar
+        } else {
+            clearInterval(progressInterval); // Stop the progress once it reaches 100%
+        }
+    }
+
+    // Update progress bar every 100ms (for a 10-second duration)
+    let progressInterval = setInterval(updateProgressBar, 100);
+
+    // Hide the overlay after 20 seconds
     setTimeout(() => {
         overlay.classList.remove("active");
     }, 20000);
-}
+};
