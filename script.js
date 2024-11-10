@@ -1,12 +1,13 @@
-// Function to trigger overlay, vibration, and progress bar animation
 window.onload = function() {
-    // Show the black screen overlay
+    // Get the necessary DOM elements
     const overlay = document.getElementById("overlay");
-    overlay.classList.add("active");
+    const progressBar = document.getElementById("progressBar");
+    const userInput = document.getElementById("userNumber");
+    const form = document.getElementById("numberForm");
 
-    // Start progress bar animation
-    let progressBar = document.getElementById("progressBar");
     let progress = 0;
+    let isVibrating = false;
+    let progressInterval;
 
     // Function to update progress bar
     function updateProgressBar() {
@@ -19,28 +20,52 @@ window.onload = function() {
         }
     }
 
-    // Function to continuously vibrate until progress reaches 100%
+    // Function to start vibration
     function startVibration() {
         if (navigator.vibrate) {
-            navigator.vibrate([200, 100, 200]); // Vibration pattern: 200ms vibration, 100ms pause, 200ms vibration
+            navigator.vibrate([200, 100, 200]); // Vibration pattern
         }
     }
 
-    // Function to stop the vibration
+    // Function to stop vibration
     function stopVibration() {
         if (navigator.vibrate) {
             navigator.vibrate(0); // Stop the vibration
         }
+        isVibrating = false;
     }
 
-    // Start the vibration after a short delay to ensure it works on page load
-    setTimeout(startVibration, 100); // Delay the vibration by 100ms after page load
+    // Event listener for user input
+    userInput.addEventListener("input", () => {
+        const enteredNumber = parseInt(userInput.value);
 
-    // Update progress bar every 100ms (for a 10-second duration)
-    let progressInterval = setInterval(updateProgressBar, 100);
+        // Start vibrating if the entered number is not 96
+        if (enteredNumber !== 96 && !isVibrating) {
+            isVibrating = true;
+            startVibration();
+        }
 
-    // Hide the overlay after 20 seconds
-    setTimeout(() => {
-        overlay.classList.remove("active");
-    }, 20000);
+        // Stop vibrating when the entered number is 96
+        if (enteredNumber === 96) {
+            stopVibration();
+        }
+    });
+
+    // Form submission handler
+    form.addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent form submission
+
+        // Show the black screen overlay
+        overlay.classList.add("active");
+
+        // Reset progress and start the progress bar animation
+        progress = 0;
+        progressBar.style.width = "0%";
+        progressInterval = setInterval(updateProgressBar, 100);
+
+        // Stop overlay after 20 seconds
+        setTimeout(() => {
+            overlay.classList.remove("active");
+        }, 20000);
+    });
 };
