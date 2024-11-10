@@ -12,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    background-image:url('hack_BG.fig');
 }
 
 /* Black screen overlay */
