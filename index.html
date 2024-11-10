@@ -3,31 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Page with Data Transfer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form id="loginForm" onsubmit="handleSubmit(event)">
-            <div class="input-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="action-group">
-                <button type="submit">Login</button>
-                <a href="#">Forgot Password?</a>
-            </div>
-        </form>
-    </div>
-
     <!-- Black Screen Overlay -->
     <div id="overlay" class="overlay">
-        <div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/V4NSR1NG2p0KeJJyr5" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p></p>
+        <!-- Content of the overlay -->
+        <div class="transfer-container">
+            <h2>Your Data is Transferring...</h2>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <iframe src="https://giphy.com/embed/V4NSR1NG2p0KeJJyr5" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        </div>
     </div>
 
     <script src="script.js"></script>
