@@ -7,15 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- User Input Section -->
+    <div class="input-container">
+        <h2>Enter a Number</h2>
+        <form id="numberForm">
+            <input type="number" id="userNumber" placeholder="Enter a number" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
     <!-- Black Screen Overlay -->
-    <div id="overlay" class="overlay">
+    <div id="overlay" class="overlay" style="display: none;">
         <!-- Content of the overlay -->
         <div class="transfer-container">
             <h2>Your Data is Transferring...</h2>
             <div class="progress-container">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
-        
         </div>
     </div>
 
