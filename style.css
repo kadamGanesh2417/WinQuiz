@@ -22,7 +22,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Slight opacity for the background */
+    background-color: transparent; /* Slight opacity for the background */
     display: none; /* Hidden by default */
     justify-content: center;
     align-items: center;
