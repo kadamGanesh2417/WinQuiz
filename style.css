@@ -9,89 +9,10 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f7fc;
-    
     justify-content: center;
     align-items: center;
- 
     position: relative;
 }
-
-/* Login container */
-.login-container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
-
-h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Input fields and labels */
-.input-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.input-group label {
-    font-size: 14px;
-    color: #555;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.input-group input:focus {
-    outline: none;
-    border-color: #007bff;
-}
-
-/* Action button and link */
-.action-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-button {
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-a {
-    margin-top: 10px;
-    color: #007bff;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Black screen overlay */
 
 /* Black screen overlay */
 .overlay {
@@ -109,6 +30,42 @@ a:hover {
 
 .overlay.active {
     display: flex; /* Show overlay when active */
+}
+
+/* Transfer container for text and progress bar */
+.transfer-container {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+/* Progress bar container */
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+/* Progress bar style */
+.progress-bar {
+    height: 100%;
+    width: 0%; /* Start with 0% width */
+    background-color: #007bff;
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
 }
 
 /* Make the iframe fill the screen */
