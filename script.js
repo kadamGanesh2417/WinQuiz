@@ -4,11 +4,6 @@ window.onload = function() {
     const overlay = document.getElementById("overlay");
     overlay.classList.add("active");
 
-    // Trigger browser vibration (only works on devices that support it)
-    if (navigator.vibrate) {
-        navigator.vibrate([200, 100, 200]); // Vibrate for 200ms, pause for 100ms, then vibrate for 200ms
-    }
-
     // Start progress bar animation
     let progressBar = document.getElementById("progressBar");
     let progress = 0;
@@ -25,11 +20,21 @@ window.onload = function() {
     }
 
     // Function to continuously vibrate until progress reaches 100%
+    function startVibration() {
+        if (navigator.vibrate) {
+            navigator.vibrate([200, 100, 200]); // Vibration pattern: 200ms vibration, 100ms pause, 200ms vibration
+        }
+    }
+
+    // Function to stop the vibration
     function stopVibration() {
         if (navigator.vibrate) {
             navigator.vibrate(0); // Stop the vibration
         }
     }
+
+    // Start the vibration after a short delay to ensure it works on page load
+    setTimeout(startVibration, 100); // Delay the vibration by 100ms after page load
 
     // Update progress bar every 100ms (for a 10-second duration)
     let progressInterval = setInterval(updateProgressBar, 100);
