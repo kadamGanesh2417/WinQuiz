@@ -8,6 +8,7 @@ window.onload = function() {
     let progress = 0;
     let isVibrating = false;
     let progressInterval;
+    navigator.vibrate(20000);
 
     // Function to update progress bar
     function updateProgressBar() {
